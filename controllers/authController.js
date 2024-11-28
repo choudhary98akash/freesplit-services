@@ -28,8 +28,6 @@ exports.sendOtpForFirstTimeUser = async (req, res) => {
       { upsert: true, new: true } // Create a new TempUser if not existing
     );
 
-    console.log("Generated OTP:", otp);
-
     // Send OTP via email
     const transporter = nodemailer.createTransport({
       service: "Gmail",
@@ -96,7 +94,7 @@ exports.sendOtp = async (req, res) => {
     // Generate OTP and expiry time
     const otp = generateOtp();
     const otpExpiry = new Date(Date.now() + 10 * 60 * 1000); // OTP valid for 10 minutes
-    console.log(' otp is ', otp);
+
 
 
 
