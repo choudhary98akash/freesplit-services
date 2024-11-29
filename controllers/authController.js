@@ -177,6 +177,10 @@ exports.updatePassword = async (req, res) => {
   }
 };
 
+
+
+
+
 // Register a new user
 exports.registerUser = async (req, res) => {
   const { name, email, password } = req.body;
@@ -206,6 +210,12 @@ exports.welcomeUser = async (req, res) => {
     res.status(500).json({ message: "Server error", error });
   }
 };
+
+
+
+
+
+
 
 // Login a user
 exports.loginUser = async (req, res) => {
