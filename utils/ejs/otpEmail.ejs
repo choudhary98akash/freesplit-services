@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Code</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .email-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background-color: #444;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 24px;
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .otp {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff7043;
+            margin: 10px 0;
+        }
+
+        .footer {
+            background-color: #f2f2f2;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            color: #757575;
+        }
+
+        .food-icon {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .restricted-svg {
+            width: 250px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="email-container">
+        <div class="header">
+            FreeSplit
+        </div>
+        <div class="content">
+            <div class="food-icon">
+
+            </div>
+            <p>Hello,</p>
+            <p>Use the following OTP to complete verify</p>
+            <p >
+                <span class="otp" >  <%= otp %></span></p>
+            <p>This OTP is valid for 10 minutes.</p>
+        </div>
+        <div class="footer">
+            If you didn't request this, please ignore this email. Stay safe!
+        </div>
+    </div>
+</body>
+
+</html>
+

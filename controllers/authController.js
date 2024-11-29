@@ -4,6 +4,8 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const generateOtp = require("../utils/generateOtp");
 const nodemailer = require("nodemailer");
+const ejs = require('ejs');
+const path = require('path');
 require('dotenv').config();
 
 
@@ -36,14 +38,24 @@ exports.sendOtpForFirstTimeUser = async (req, res) => {
         pass: process.env.EMAIL_PASS,
       },
     });
+    console.log('current path ',__dirname);
+
+    const htmlContent = await ejs.renderFile(
+      path.join(__dirname, '..', 'utils','ejs','otpEmail.ejs'),
+      {
+        name: 'Akash',
+        otp: otp,
+        validity: 5, // OTP validity in minutes
+      }
+    );
+
+    console.log(htmlContent);
 
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: email,
       subject: "Verify Your Email for FreeSplit",
-      html: `<h1>Welcome to FreeSplit!</h1>
-             <h3>Your OTP code is: ${otp}. It is valid for 10 minutes.</h3>
-             <p>Please use this OTP to verify your email address.</p>`,
+      html: htmlContent,
     });
 
     res.status(200).json({ message: "OTP sent successfully for email verification" });
